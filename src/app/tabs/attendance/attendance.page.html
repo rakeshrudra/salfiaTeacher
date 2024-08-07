@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Attendance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md>
+        <ion-title>Select Student</ion-title>
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="filterForm">
+      <ion-row>
+        <ion-col size="12" size-md="12">
+          <ion-input type="date" label-placement="floating" formControlName="date" fill="outline"
+            label="Select Date"></ion-input>
+        </ion-col>
+        <ion-col size="4" size-md="4">
+          <div class="form-group">
+            <ion-select label="Select Class" formControlName="class" fo label-placement="floating" fill="outline"
+              (ionChange)="triggerEvent($event)">
+              <ion-select-option *ngFor="let list of classList"
+                [value]="list.class_name">{{list.class_name}}</ion-select-option>
+
+            </ion-select>
+          </div>
+        </ion-col>
+        <ion-col size="4" size-md="4">
+          <div class="form-group">
+            <ion-select label="Select Section" label-placement="floating" formControlName="section" fill="outline">
+              <ion-select-option *ngFor="let list of sectionList"
+                [value]="list.section_name">{{list.section}}</ion-select-option>
+            </ion-select>
+          </div>
+        </ion-col>
+        <ion-col size="4" size-md="4">
+          <ion-button (click)="search()" [disabled]="loader">Search <ion-spinner *ngIf="loader"></ion-spinner>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+  <ion-list class="ion-padding ripple-parent">
+    <ion-item class="bg-danger" *ngIf="attendencelist.length > 0">
+      <ion-text>
+        Attendence Done
+      </ion-text>
+    </ion-item>
+    <ng-container *ngIf="attendencelist.length == 0">
+      <ion-item *ngFor="let list of studentList" (click)="selected(list)" lines="none"
+        [ngClass]="{'bg-success':list.selected}">
+        <ion-icon name="checkbox-outline" slot="start" *ngIf="list.selected"></ion-icon>
+        <ion-icon name="square-outline" slot="start" *ngIf="!list.selected"></ion-icon>
+        <ion-text>
+          <ion-title>{{list.name}}</ion-title>
+          <ion-title><small class="ion-padding-left">Class: {{list.class}} |
+              Section:{{list.section}}</small></ion-title>
+        </ion-text>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+</ion-content>
+<ion-footer *ngIf="selectedStudentList.length > 0">
+  <ion-toolbar>
+    <ion-button (click)="submit()" [disabled]="loader" shap="round" expand="block">Submit <ion-spinner
+        *ngIf="loader"></ion-spinner>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Month Exam Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h4 style="font-size: 15px;">Class: {{class}} | Section: {{section}} | Date: {{date | date:"dd-MMM-YYYY"}} | subject: {{subject}}</h4>
+  <table style="width: 100%;" >
+    <thead>
+      <th></th>
+      <th>Name</th>
+      <th>Mark</th>
+      
+    </thead>
+    <tr *ngFor="let list of details" >
+      <td>{{list.roll_no}}</td>
+      <td>{{list.name}}</td>
+      <td>{{list.mark}}/{{list.outof}}</td>
+    </tr>
+  </table>
+<!--ion-list>
+  <ion-item *ngFor="let list of details" class="border" routerLink="/tabs/mark-details" [queryParams]="list" >
+    <ion-label>
+      <table style="width: 100%;">
+        <tr>
+          <td style="width: 50%;">Name:</td>
+          <td>{{list.name}}</td>
+        </tr>
+        <tr>
+          <td style="width: 50%;">Class:</td>
+          <td>{{list.class}}</td>
+        </tr>
+        <tr>
+          <td>Section:</td>
+          <td>{{list.section}}</td>
+        </tr>
+        <tr>
+          <td>Subject:</td>
+          <td>{{list.subject}}</td>
+        </tr>
+        <tr>
+          <td>Date:</td>
+          <td>{{list.date | date:"dd/MM/YYYY"}}</td>
+        </tr>
+        <tr>
+          <td>Outof:</td>
+          <td>{{list.outof}}</td>
+        </tr>
+        <tr>
+          <td>Mark:</td>
+          <td>{{list.mark}}</td>
+        </tr>
+      </table>
+    </ion-label>
+  </ion-item>
+</ion-list-->
+</ion-content>

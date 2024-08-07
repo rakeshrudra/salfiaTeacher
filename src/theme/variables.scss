@@ -1,2 +1,24 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+:root{
+    --white: #fff;
+    --primary: #f6f8fc;
+    --secondary: #f7f9fc;
+    --dark: #d8dade;
+    // --bg-secondary: #585ce5;
+    --background: #1b7879;
+    --light: #f4fcfc;
+
+    --bg-secondary: #a17dcd;
+    --bg-tertiary: #faebfff2;
+    --input_field_bg: #f4f7f8;
+    --transparent: rgba(0, 0, 0, 0);
+    --text-light: #7c7c7c;
+    --text-dark: #4d4d4d;
+    --text-black: #000;
+    --red_color: #ff0000;
+    --yelow_color: #ffba00;
+    --green_color: #21b624;
+}

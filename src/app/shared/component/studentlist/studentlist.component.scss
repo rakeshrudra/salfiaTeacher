@@ -1,0 +1,10 @@
+ion-item{
+    border: 1px solid #adadad;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+.bg-success{
+    background-color: var(--primary);
+    --background-color: var(--primary);
+    --background: var(--primary);
+}

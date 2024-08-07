@@ -1,0 +1,28 @@
+ion-content{
+    --background: var(--light);
+    ion-input{
+        background-color: var(--primary);
+    }
+    ion-item{
+        --background: var(--transparent);
+        ion-text{
+            cursor: pointer;
+        }
+    }
+}
+ion-grid{
+    height: 100%;
+}
+ion-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+ion-button{
+    width: 100%;
+    height: 45px;
+    background: var(--secondary);
+    color: var(--text-dark);
+    border-radius: 32px;
+}

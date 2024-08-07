@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>New DSR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="addHomeWork">
+    <ion-grid>
+      <ion-row>
+
+        <ion-col size="6">
+          <ion-input label="DRS Date" label-placement="floating" formControlName="date" fill="outline"
+            type="date"></ion-input>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select label="Select Period" formControlName="period" label-placement="floating" fill="outline">
+            <ion-select-option *ngFor="let list of periodList"
+              [value]="list">{{list}}</ion-select-option>
+
+          </ion-select>
+        </ion-col>
+
+
+        <ion-col size="6">
+          <ion-select label="Select Class" formControlName="class" label-placement="floating" fill="outline"
+            (ionChange)="triggerEvent($event)">
+            <ion-select-option *ngFor="let list of classList"
+              [value]="list.class_name">{{list.class_name}}</ion-select-option>
+
+          </ion-select>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select label="Select Section" formControlName="section" label-placement="floating" fill="outline">
+            <ion-select-option *ngFor="let list of sectionList"
+              [value]="list.section_name">{{list.section}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-select label="Select Subject" formControlName="subject" label-placement="floating" fill="outline" (ionChange)="triggerSubjectEvent($event)">
+            <ion-select-option *ngFor="let list of subjectList"
+              [value]="list.subject_name">{{list.subject_name}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-select label="Select Chapter" formControlName="chapter" label-placement="floating" fill="outline">
+            <ion-select-option *ngFor="let list of chapterList"
+              [value]="list.chapter_name">{{list.chapter_name}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-textarea label="DSR Details" label-placement="floating" formControlName="details" fill="outline"
+            style="height: 180px;"></ion-textarea>
+        </ion-col>
+        <ion-col>
+          <ion-button expend="full" (click)="submit()">Submit <ion-spinner *ngIf="submited"></ion-spinner>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

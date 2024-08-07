@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true" >
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md>
+        <ion-title>Select Student</ion-title>
+      </ion-col>
+    </ion-row>
+    <!--form [formGroup]="filterForm">
+      <ion-row>
+        <ion-col size="12" size-md>
+          <div class="form-group">
+            <ion-select label="Select Class" formControlName="class" fo label-placement="floating" fill="outline"
+              (ionChange)="triggerEvent($event)">
+              <ion-select-option *ngFor="let list of classList"
+                [value]="list.class_name">{{list.class_name}}</ion-select-option>
+
+            </ion-select>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md>
+          <div class="form-group">
+            <ion-select label="Select Section" label-placement="floating" formControlName="section" fill="outline">
+              <ion-select-option *ngFor="let list of sectionList"
+                [value]="list.section_name">{{list.section}}</ion-select-option>
+            </ion-select>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md>
+          <ion-button (click)="search()">Search</ion-button>
+        </ion-col>
+      </ion-row>
+    </form-->
+  </ion-grid>
+  <ion-list class="ion-padding" >
+    <ion-item *ngFor="let list of studentList" (click)="selected(list)" lines="none" [ngClass]="{'bg-success':list.selected}">
+      <ion-icon name="checkbox-outline" slot="start" *ngIf="list.selected"></ion-icon>
+      <ion-icon name="square-outline" slot="start" *ngIf="!list.selected"></ion-icon>
+      <ion-text >
+        <ion-title>{{list.name}}</ion-title>
+        <ion-title><small class="ion-padding-left" >Class: {{list.class}} | Section:{{list.section}}  | Roll No:{{list.roll_no}}</small></ion-title>
+      </ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-button (click)="dismiss()" >Submit</ion-button>
+</ion-footer>
+

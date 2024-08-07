@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Homework</ion-title>
+    <ion-button slot="end" routerLink="/tabs/tab2/addhomework">Add New +</ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="!loaded">
+    <ion-list-header>
+      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ng-container *ngFor="let list of homeWorkList">
+    <ion-card (click)="presentModal(list)">
+      <ion-card-header>
+        <ion-card-subtitle>
+          Class: {{list.class}} | Section:{{list.section}} | <strong style="text-transform: capitalize;" >({{list.type}} Student)</strong>
+          <span style="float: right;" >{{list.dateTime | date:"medium"}}</span>
+        </ion-card-subtitle>
+        <ion-card-title style="text-transform: capitalize; font-weight: 700; " >{{list.title}}</ion-card-title>
+      </ion-card-header>
+  
+    </ion-card>
+  </ng-container>
+    
+</ion-content>

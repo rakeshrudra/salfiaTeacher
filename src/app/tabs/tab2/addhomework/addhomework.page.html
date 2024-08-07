@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Send Homework</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="addHomeWork">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-select label="Select Class" formControlName="class" label-placement="floating" fill="outline"
+            (ionChange)="triggerEvent($event)">
+            <ion-select-option *ngFor="let list of classList"
+              [value]="list.class_name">{{list.class_name}}</ion-select-option>
+
+          </ion-select>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select label="Select Section" formControlName="section" label-placement="floating" fill="outline">
+            <ion-select-option *ngFor="let list of sectionList"
+              [value]="list.section_name">{{list.section}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-select label="Select Subject" formControlName="subject" label-placement="floating" fill="outline"
+            >
+            <ion-select-option *ngFor="let list of subjectList"
+              [value]="list.subject_name">{{list.subject_name}}</ion-select-option>
+
+          </ion-select>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select label="Select Type" label-placement="floating" formControlName="type" fill="outline" (ionChange)="selectStudent($event)">
+            <ion-select-option value="all">All</ion-select-option>
+            <ion-select-option value="selected">Selected Students</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-input label="Homework Title" label-placement="floating" formControlName="title"
+            fill="outline"></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-textarea label="Homework Details" label-placement="floating" formControlName="details" fill="outline"
+            style="height: 180px;"></ion-textarea>
+        </ion-col>
+        <ion-col>
+          <ion-button expend="full" (click)="submit()">Submit             <ion-spinner *ngIf="submited"></ion-spinner>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+
+
+
+
+    <ion-grid>
+      <ion-row>
+        <ng-container *ngFor="let list of selectedStudentList">
+          <ion-col size="6" color="primary" class="border">
+            <p>{{list.name}}</p>
+            <p>{{list.class}}/{{list.section}}</p>
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

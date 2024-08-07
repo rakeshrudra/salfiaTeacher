@@ -1,0 +1,117 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h5 class="ion-padding-start text-success" style="color: rgb(16, 213, 210);"><strong>Home-Work</strong></h5>
+
+  <ion-list class="menu ion-padding" *ngIf="loaded && homeworkList.length == 0">
+    <ion-item lines="none" class="bg-success" routerLink="/tabs/tab2/addhomework">
+      <ion-label>Add Homework +</ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Home Work Not Created</ion-label>
+    </ion-item>
+
+
+
+
+
+  </ion-list>
+
+  <ion-list *ngIf="!loaded">
+    <ion-list-header>
+      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-container *ngFor="let notification of homeworkList">
+    <ion-card (click)="presentModal(notification)">
+      <ion-card-header>
+        <ion-card-subtitle>Week: {{notification.week_no}} | Subject: {{notification.subject}}
+
+          <span style="float: right;">{{notification.dateTime | date:"medium"}}</span>
+
+        </ion-card-subtitle>
+
+        <ion-card-title style="text-transform: capitalize; font-weight: 700; ">By: Teacher</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{notification.details}}
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  <br />
+  <h5 class="ion-padding-start text-warning" style="color:  rgb(16, 213, 210);"><strong>Weekly plan</strong> </h5>
+  <ion-list *ngIf="!loaded">
+    <ion-list-header>
+      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list class="menu ion-padding" *ngIf="loaded && weekPlanList.length == 0">
+    <ion-item lines="none" class="bg-success" routerLink="/tabs/tab2/addweeklyplan">
+      <ion-label>Add Weekly Plan +</ion-label>
+    </ion-item> <ion-item lines="none">
+      <ion-label>Week Plan Not Created</ion-label>
+    </ion-item>
+
+
+  </ion-list>
+  <ng-container *ngFor="let notification of weekPlanList">
+    <ion-card (click)="presentModal(notification)">
+      <ion-card-header>
+        <ion-card-subtitle>Week: {{notification.week_no}} | Subject: {{notification.subject}}
+
+          <span style="float: right; font-weight: 700;">{{notification.startDate | date:"dd/MM/YYYY"}} to
+            {{notification.endDate | date:"dd/MM/YYYY"}}</span>
+
+        </ion-card-subtitle>
+
+        <ion-card-title style="text-transform: capitalize; font-weight: 700; ">By: Teacher</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{notification.details}}
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+</ion-content>

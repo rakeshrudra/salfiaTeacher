@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <img src="../../assets/logo.png" />
+        <br />
+        <br />
+        <form [formGroup]="loginForm">
+          <ion-input label="Contact" formControlName="contact" label-placement="floating" fill="outline"
+            placeholder="Contact" autocomplete="off"></ion-input>
+          <br />
+          <ion-input label="Password" formControlName="password" label-placement="floating" fill="outline"
+            placeholder="Password" type="password" autocomplete="off" ></ion-input>
+          <br />
+          <ion-button  (click)="submit()"  [disabled]="submited" 
+            expend="full">Submit
+            <ion-spinner *ngIf="submited"></ion-spinner>
+
+          </ion-button>
+        </form>
+        <br />
+        <ion-item lines="none" >
+          <ion-text slot="end" routerLink="/forgotpassword">Forgot Password?</ion-text>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
