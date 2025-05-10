@@ -1,0 +1,30 @@
+my-key-alias
+password : 123456
+
+
+
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+CREATE USER 'brace_remote_a'@'localhost' IDENTIFIED BY 'manAgix999#ok';
+
+ALTER USER 'brace_remote_a'@'localhost' IDENTIFIED BY 'manAgix999)ok';
+ALTER USER 'brace_remote_a'@'203.170.246.173' IDENTIFIED BY 'manAgix999)ok';
+
+CREATE USER 'brace_remote_a'@'203.170.246.173' IDENTIFIED BY 'manAgix999#ok';
+
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'brace_remote_a'@'localhost' WITH GRANT OPTION;
+
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'brace_remote_a'@'203.170.246.173' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON *.* TO 'brace_remote_a'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'brace_remote_a'@'203.170.246.173';
+
+
+
+CREATE USER 'brace_remote_a'@'203.146.112.242' IDENTIFIED BY 'manAgix999#ok';
+
+
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'brace_remote_a'@'203.146.112.242' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON *.* TO 'brace_remote_a'@'203.146.112.242';
+

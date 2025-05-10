@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   submited = false;
 
-  constructor(private _fb: FormBuilder, private _api: ApiService, private _router: Router) {
+  constructor(private _fb: FormBuilder, private toastController: ToastController, private _api: ApiService, private _router: Router) {
     this.loginForm = _fb.group({
       contact:[null,Validators.required],
       password:[null,Validators.required]
@@ -42,10 +43,21 @@ export class LoginPage implements OnInit {
 
       },er=>{
         this.submited = false;
+        this.presentToast(er.error.message,'bottom')
       })
     }else{
       this.submited = false;
       this.loginForm.markAllAsTouched()
     }
+  }
+  async presentToast(msg='',position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 1500,
+      position: position,
+      color:'danger'
+    });
+
+    await toast.present();
   }
 }

@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'salfia.teacher.mgx',
-  appName: 'sSalfia Teacher',
+  appName: 'Salfia Teacher',
   webDir: 'www'
 };
 

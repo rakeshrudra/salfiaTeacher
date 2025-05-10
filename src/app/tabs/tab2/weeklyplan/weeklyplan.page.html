@@ -38,14 +38,14 @@
       <ion-card-header>
         <ion-card-subtitle>Week: {{notification.week_no}} | Subject: {{notification.subject}}
 
-          <span style="float: right;" >{{notification.startDate | date:"medium"}} - {{notification.endDate | date:"medium"}}</span>
+          <span style="float: right;" >{{notification.startDate | date:"dd/MMM/YYYY"}} - {{notification.endDate | date:"dd/MMM/YYYY"}}</span>
 
         </ion-card-subtitle>
 
         <ion-card-title style="text-transform: capitalize; font-weight: 700; " >By: Teacher</ion-card-title>
       </ion-card-header>
 
-      <ion-card-content>
+      <ion-card-content class="title">
         {{notification.details}}
       </ion-card-content>
     </ion-card>

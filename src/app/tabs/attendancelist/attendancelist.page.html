@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-list *ngIf="loaded">
     <ion-list-header>
       <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
@@ -28,7 +28,23 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  <ion-list>
+  <table style="width: 100%;">
+    <thead>
+      <th>Class</th>
+      <th>Section</th>
+      <th>Date</th>
+      <th></th>
+    </thead>
+    <tbody >
+      <tr *ngFor="let list of details"  routerLink="/tabs/attendance-details" [queryParams]="list">
+        <td>{{list.class}}</td>
+        <td>{{list.section}}</td>
+        <td>{{list.date | date:"dd/MMM/YYY"}}</td>
+        <td><ion-icon name="checkmark-circle-outline" color="success"></ion-icon></td>
+      </tr>
+    </tbody>
+  </table>
+  <!--ion-list>
     <ion-item *ngFor="let list of details" class="border" routerLink="/tabs/attendance-details" [queryParams]="list">
       <ion-label>
         <table style="width: 100%;">
@@ -49,5 +65,5 @@
       </ion-label>
     </ion-item>
     
-  </ion-list>
+  </ion-list-->
 </ion-content>

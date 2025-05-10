@@ -80,7 +80,7 @@ export class AddnotificationsPage implements OnInit {
         alert(v.message);
         this.submited = false;
 
-        this._router.navigate(['/tabs/tab2/homework'])
+        this._router.navigate(['/tabs/tab2/notifications'])
       },er=>{
         this.submited = false;
       });

@@ -10,16 +10,7 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <form [formGroup]="addHomeWork">
     <ion-row>
-      <ion-col size="6">
-        <div class="form-group">
-          <ion-select label="Select Class" label-placement="floating" formControlName="class" fill="outline"
-            (ionChange)="triggerEvent($event)">
-            <ion-select-option *ngFor="let list of classList"
-              [value]="list.class_name">{{list.class_name}}</ion-select-option>
-
-          </ion-select>
-        </div>
-      </ion-col>
+ 
       <ion-col size="6">
 
         <div class="form-group">
@@ -51,7 +42,7 @@
           </ion-select>
         </div>
       </ion-col>
-      <ion-col size="12">
+      <ion-col size="6">
         <div class="form-group">
           <ion-select label="Select Notification Type" label-placement="floating" formControlName="notification_type" fill="outline"
             >

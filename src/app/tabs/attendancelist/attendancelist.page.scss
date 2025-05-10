@@ -6,4 +6,13 @@ ion-list{
     margin-bottom: 12px;
     border-radius: 8px;
     }
+    .bg-danger{
+        --background: #fbe5d9;
+    }
 }
+th, td{
+    padding: 2px;
+    border: 1px solid;
+    font-size: 14px;
+    text-align: center;
+}  

@@ -5,8 +5,8 @@
 </ion-header>
 <ion-content [fullscreen]="true">
 
-    <h6 *ngIf="data?.title" style="padding-left: 16px;">{{data.title}}</h6>
-    <p style="padding: 16px;">
+    <h6 class="title" *ngIf="data?.title" style="padding-left: 16px;text-transform: capitalize;">{{data.title}}</h6>
+    <p class="title" style="padding: 16px;">
         {{data.details}}</p>
 </ion-content>
 <ion-footer>

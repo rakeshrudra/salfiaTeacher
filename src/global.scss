@@ -45,6 +45,7 @@ body{
     ion-card-title{
         font-size: 14px;
     }
+    .title:first-letter {text-transform:capitalize;}
 
 }
 .menu{

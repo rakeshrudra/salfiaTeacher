@@ -21,7 +21,7 @@ export class MonthExamDetailsPage implements OnInit {
     this.class= this.route.snapshot.queryParamMap.get('class');
     this.section= this.route.snapshot.queryParamMap.get('section');
     this.subject= this.route.snapshot.queryParamMap.get('subject');
-    this.date= this.route.snapshot.queryParamMap.get('terms');
+    this.date= this.route.snapshot.queryParamMap.get('date');
     let filter = {
       class: this.route.snapshot.queryParamMap.get('class'),
       section: this.route.snapshot.queryParamMap.get('section'),

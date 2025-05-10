@@ -10,7 +10,7 @@
   <ion-card *ngFor="let list of drsList">
     <ion-card-header>
       <ion-card-title>{{list.date | date:"dd/MMM/YYYY"}} | {{list.period}} Period</ion-card-title>
-      <ion-card-subtitle>{{list.class}} | {{list.section}}</ion-card-subtitle>
+      <ion-card-subtitle>{{list.class}} | {{list.section}} | <strong>Subject:</strong>{{list.subject}} | <strong>Chapter:</strong>{{list.section}} </ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>

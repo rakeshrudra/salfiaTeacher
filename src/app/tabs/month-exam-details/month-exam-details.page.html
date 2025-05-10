@@ -7,17 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <h4 style="font-size: 15px;">Class: {{class}} | Section: {{section}} | Date: {{date | date:"dd-MMM-YYYY"}} | subject: {{subject}}</h4>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h4 style="font-size: 15px;">Class: {{class}} | Section: {{section}} | Date: {{date | date:"dd-MMM-YYYY"}} | Subject: {{subject}}</h4>
   <table style="width: 100%;" >
     <thead>
-      <th></th>
+
       <th>Name</th>
       <th>Mark</th>
       
     </thead>
     <tr *ngFor="let list of details" >
-      <td>{{list.roll_no}}</td>
+
       <td>{{list.name}}</td>
       <td>{{list.mark}}/{{list.outof}}</td>
     </tr>

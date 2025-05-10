@@ -7,16 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <h4 style="font-size: 15px;">Class: {{class}} | Section: {{section}} | date: {{date | date:"dd/MMM/YYYY"}}</h4>
   <table style="width: 100%;" >
     <thead>
-      <th></th>
       <th>Name</th>
       <th>Status</th>
     </thead>
     <tr *ngFor="let list of details" >
-      <td>{{list.roll_no}}</td>
       <td>{{list.name}}</td>
       <td>
         <ion-badge color="danger" *ngIf="list.status == 0"  >Absent</ion-badge>
